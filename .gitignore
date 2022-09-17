@@ -1,0 +1,4 @@
+patterns/*.exe
+arrays/*.exe
+/**/tempCodeRunnerFile.cpp
+.vscode/
