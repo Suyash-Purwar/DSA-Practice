@@ -1,9 +1,12 @@
 #include <iostream>
 
-using namespace std;
+using std::cout;
+using std::cin;
+using std::endl;
 
 int main() {
     int n, n_copy;
+    cout << "Enter the number: ";
     cin >> n;
     n_copy = n;
     for (int i = 0; i < 2*n-1; i++) {
