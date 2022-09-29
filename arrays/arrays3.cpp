@@ -1,5 +1,5 @@
 /**
- * @name Single Number
+ * @name Single Number (Leetcode Easy)
  * @brief Given a non-empty array of integers nums, every element appears twice except for one. Find that single one.
  * @link https://leetcode.com/problems/single-number/
  * @author Suyash Purwar (github.com/suyash-purwar)
