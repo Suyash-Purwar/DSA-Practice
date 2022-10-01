@@ -1,5 +1,5 @@
 /**
- * @file Remove Duplicates from Sorted Array
+ * @name Remove Duplicates from Sorted Array (LeetCode Easy)
  * @brief Given an integer array nums sorted in non-decreasing order, remove the duplicates in-place such that each unique element appears only once. The relative order of the elements should be kept the same.
  * @link https://leetcode.com/problems/remove-duplicates-from-sorted-array/
  * @author Suyash Purwar (github.com/suyash-purwar)
