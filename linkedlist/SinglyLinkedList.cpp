@@ -64,9 +64,6 @@ class LinkedList {
         Node* current = head;
         while (current -> next != tail) {
             current = current -> next;
-            if (current -> next == tail) {
-                cout << "te" << endl;
-            }
         }
         int deleted_data = tail -> data;
         delete current -> next;
@@ -95,6 +92,25 @@ class LinkedList {
         return deleted_data;
     }
 
+    // Deletes the first occurence of the value
+    int deleteOccurenceOf(int value) {
+        Node *temp = head;
+        if (temp -> data == value) {
+            return deleteAtHead();
+        }
+        while (temp -> next -> data != value) {
+            temp = temp -> next;
+        }
+        Node* to_be_deleted = temp -> next;
+        int deleted_data = to_be_deleted -> data;
+        temp -> next = to_be_deleted -> next;
+        if (to_be_deleted == tail) {
+            tail = temp;
+        }
+        delete to_be_deleted;
+        return deleted_data;
+    }
+
     void traverse() {
         Node *temp = head;
         while (temp != NULL) {
@@ -116,6 +132,8 @@ int main() {
     ll1 -> traverse();
 
     cout << ll1 -> deleteAtTail() << endl;
+    cout << ll1 -> deleteOccurenceOf(8) << endl;
+    cout << ll1 -> tail -> data << endl;
 
     ll1 -> traverse();
     return 0;
