@@ -123,7 +123,7 @@ class LinkedList {
 };
 
 int main() {
-    LinkedList *ll1 = new LinkedList(int(4));
+    LinkedList *ll1 = new LinkedList(4);
     ll1 -> insertAtHead(10);
     ll1 -> insertAtHead(3);
     ll1 -> insertAtTail(1);
@@ -135,6 +135,9 @@ int main() {
     cout << ll1 -> deleteOccurenceOf(8) << endl;
     cout << ll1 -> tail -> data << endl;
 
+    ll1 -> traverse();
+
+    ll1 -> insertAtPosition(4, 10);
     ll1 -> traverse();
     return 0;
 }
