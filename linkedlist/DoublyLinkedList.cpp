@@ -44,7 +44,7 @@ class DoublyLinkedList {
         cout << "NULL" << endl;
     }
 
-    void travsereReverse() {
+    void traverseReverse() {
         Node *temp = tail;
         cout << "NULL";
         while (temp != NULL) {
@@ -156,6 +156,7 @@ class DoublyLinkedList {
         return deleted_data;
     }
 
+    // Deletes the first occurence of the value
     int deleteOccurenceOf(int value) {
         if (this -> length() == 0) {
             cout << "Nothing to delete!" << endl;
