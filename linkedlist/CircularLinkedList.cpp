@@ -24,7 +24,6 @@ class CircularLinkedList {
     }
 
     int length() {
-        if (!tail) return 0;
         Node *temp = tail;
         int count = 1;
         while (temp -> next != tail) {
