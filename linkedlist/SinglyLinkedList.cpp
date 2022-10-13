@@ -15,12 +15,8 @@ class Node {
 
 class LinkedList {
     public:
-    Node *head;
-    Node *tail;
-
-    LinkedList(int data) {
-        head = tail = new Node(data);
-    }
+    Node *head = NULL;
+    Node *tail = NULL;
 
     void insertAtHead(int data) {
         Node *temp = new Node(data, head);
@@ -147,7 +143,6 @@ class LinkedList {
             temp = temp -> next;
         }
         cout << "NULL" << endl;
-        delete temp;
     }
 
     int length() {
@@ -162,7 +157,7 @@ class LinkedList {
 };
 
 int main() {
-    LinkedList *ll1 = new LinkedList(4);
+    LinkedList *ll1 = new LinkedList();
     cout << ll1 -> deleteAtHead() << endl;
     cout << ll1 -> deleteAtHead() << endl;
     
@@ -184,6 +179,17 @@ int main() {
     ll1 -> traverse();
 
     cout << ll1 -> deleteAtPosition(4) << endl;
+
+    cout << "-----------------------" << endl;
+
+    LinkedList *ll2 = new LinkedList();
+    ll2 -> traverse();
+    cout << ll2 -> length() << endl;
+    cout << ll2 -> deleteAtHead() << endl;
+    ll2 -> insertAtHead(20);
+    ll2 -> insertAtPosition(1, 12);
+    ll2 -> traverse();
+    ll2 -> insertAtPosition(4, 2);
 
     // ll1 -> insertAtHead(3);
     // ll1 -> insertAtTail(1);

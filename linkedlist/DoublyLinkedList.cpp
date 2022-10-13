@@ -18,12 +18,8 @@ class Node {
 
 class DoublyLinkedList {
     public:
-    Node *head;
-    Node *tail;
-
-    DoublyLinkedList(int data) {
-        head = tail = new Node(data);
-    }
+    Node *head = NULL;
+    Node *tail = NULL;
 
     int length() {
         int count = 0;
@@ -77,6 +73,8 @@ class DoublyLinkedList {
     void insertAtPosition(int position, int data) {
         if (position == 1) {
             this -> insertAtHead(data);
+        } else if (position > (this->length()+1)) {
+            cout << "Insertion is not possible at this position" << endl;
         } else {
             Node* temp = head;
             int i = 1;
@@ -140,6 +138,10 @@ class DoublyLinkedList {
             return -1;
         }
         if (position == 1) return this -> deleteAtHead();
+        if (position > this -> length()) {
+            cout << "Deletion is not possible at this position" << endl;
+            return -1;
+        }
         int i = 1;
         Node *before_target = head;
         while (i < position-1) {
@@ -179,7 +181,7 @@ class DoublyLinkedList {
 };
 
 int main() {
-    DoublyLinkedList *dll = new DoublyLinkedList(10);
+    DoublyLinkedList *dll = new DoublyLinkedList();
 
     dll -> insertAtHead(3);
     dll -> insertAtHead(9);
@@ -192,6 +194,18 @@ int main() {
     cout << dll -> deleteOccurenceOf(10) << endl;
     dll -> traverse();
     cout << "head: " << dll->head->data << " tail: " << dll->tail->data << endl;
+
+    cout << "-------------------------------------" << endl;
+
+    DoublyLinkedList *dll2 = new DoublyLinkedList();
+    dll2 -> traverse();
+    dll2 -> insertAtHead(2);
+    dll2 -> insertAtTail(10);
+    dll2 -> deleteAtTail();
+    dll2 -> deleteAtPosition(2);
+    dll2 -> insertAtPosition(4, 2);
+
+    cout << "Head: " << dll2 -> head -> data << " Tail: " << dll2 -> tail -> data << endl;
 
     // cout << dll -> deleteAtHead() << endl;
     // cout << dll -> deleteAtHead() << endl;
