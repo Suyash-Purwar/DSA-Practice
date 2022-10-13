@@ -45,27 +45,50 @@ class CircularLinkedList {
 
     void traversal() {
         Node* current = tail;
+        if (!tail) return;
         do {
             cout << current -> data << " ==> ";
             current = current -> next;
         } while (current != tail);
         cout << endl;
     }
+
+    int deleteNode(int value) {
+        if (tail -> next == tail) {
+            int deleted_data = tail -> data;
+            delete tail;
+            tail = NULL;
+            return deleted_data;
+        }
+        Node *before_target = tail;
+        while (before_target -> next -> data != value) {
+            before_target = before_target -> next;
+        }
+        Node *target = before_target -> next;
+        int deleted_data = target -> data;
+        before_target -> next = target -> next;
+        delete target;
+        return deleted_data;
+    }
 };
 
 int main() {
     CircularLinkedList *cll = new CircularLinkedList(10);
 
-    cll -> insertNodeAfter(7, 10);
-    cll -> traversal();
+    // cll -> insertNodeAfter(7, 10);
+    // cll -> traversal();
     
-    cll -> insertNodeAfter(19, 7);
-    cll -> traversal();
+    // cll -> insertNodeAfter(19, 7);
+    // cll -> traversal();
 
-    cll -> insertNodeAfter(1, 19);
-    cll -> traversal();
+    // cll -> insertNodeAfter(1, 19);
+    // cll -> traversal();
 
-    cll -> insertNodeAfter(101, 10);
+    // cll -> insertNodeAfter(101, 10);
+    // cll -> traversal();
+
+    cout << cll -> deleteNode(7) << endl;
+
     cll -> traversal();
 
     return 0;
