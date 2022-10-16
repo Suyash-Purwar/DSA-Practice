@@ -67,7 +67,6 @@ int main() {
     st -> push(9);
     st -> push(3);
     st -> push(15);
-    st -> push(12);
 
     cout << st -> size() << endl;
     cout << st -> peek() << endl;
