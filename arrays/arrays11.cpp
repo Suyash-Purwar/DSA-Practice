@@ -1,3 +1,10 @@
+/**
+ * @file Transpose Matrix (Leetcode Easy)
+ * @brief Given a 2D integer array matrix, return the transpose of matrix.
+ * @link https://leetcode.com/problems/transpose-matrix/
+ * @author Suyash Purwar (github.com/suyash-purwar)
+ * @date 27-10-2022
+*/
 #include<iostream>
 #include<vector>
 
