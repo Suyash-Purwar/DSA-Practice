@@ -1,5 +1,5 @@
 /**
- * @file Difference Between Element Sum and Digit Sum of an Array (Leetcode Easy)
+ * @file Summary Ranges (Leetcode Easy)
  * @link https://leetcode.com/problems/summary-ranges/  
  * @author Suyash Purwar (github.com/suyash-purwar)
  * @date 19-01-2023
