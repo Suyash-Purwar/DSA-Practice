@@ -1,6 +1,9 @@
 #include <iostream>
 #include <cmath>
 
+// Only handles +ve numbers
+// Checkout negativeDecimalToBinary to see how both +ve and -ve be supported
+
 using namespace std;
 
 class Solution {

@@ -5,6 +5,7 @@ using namespace std;
 
 class Solution {
   public:
+  // This implementation can handle both +ve and -ve numbers
   void negativeDecimalToBinary(int n) {
     int size = 32;
 
