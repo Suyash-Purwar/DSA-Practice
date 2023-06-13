@@ -7,7 +7,7 @@ class Solution {
   public:
   // This implementation can handle both +ve and -ve numbers
   void negativeDecimalToBinary(int n) {
-    int size = 32;
+    int size = sizeof(n) * 8;
 
     cout << n << endl;
 
