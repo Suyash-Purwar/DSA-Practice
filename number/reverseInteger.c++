@@ -14,13 +14,12 @@ using namespace std;
 class Solution {
   public:
   int reverseInteger(int num) {
-    int ans = 0; int i = 0;
+    int ans = 0;
     while(num != 0) {
       int digit = num % 10;
       if (ans > INT_MAX/10 || ans < INT_MIN/10) return 0;
       ans = (ans * 10) + digit;
       num /= 10;
-      i++;
     }
     return ans;
   }
