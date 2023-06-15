@@ -17,13 +17,10 @@ class Solution {
   // Implementation 1
   bool isPowerOfTwo1(int n) {
     int times = 1; bool ans = false;
-    if (n <= 0) return ans;
+    if (n <= 0 || n % 2 != 0) return ans;
     while (n != 0) {
+      if (n == 2) return true;
       n = n >> 1;
-      if (n % 2 != 0) return false;
-      if (n == 2) {
-        return true;
-      }
     }
     return ans;
   }
@@ -37,13 +34,32 @@ class Solution {
    	}
   	return false;
   }
+
+  // Implementation 3 (Best implementation) (Simplest approach)
+  // If a number is a power of two, it's binary representation will have only one set bit.
+  // So, just check if a number has only one set bit or not
+  // Right shift the number and use '&' to check if a bit is 1 or 0
+  bool isPowerOfTwo3(int n) {
+    if (n <= 0) return false;
+    bool isFound = false;
+    while (n != 0) {
+      if (n & 1) {
+        if(isFound) return false;
+        isFound = true;
+      }
+      n = n >> 1;
+    }
+    return isFound;
+  }
 };
 
 int main() {
   Solution sol;
-  cout << sol.isPowerOfTwo1(2048) << endl;
+  cout << sol.isPowerOfTwo1(-10) << endl;
 
   cout << sol.isPowerOfTwo2(1073741824) << endl;
+
+  cout << sol.isPowerOfTwo3(-1073741824) << endl;
 
   return 0;
 }
