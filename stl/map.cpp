@@ -1,5 +1,6 @@
 #include <iostream>
 #include <map>
+#include <unordered_map>
 
 using namespace std;
 
@@ -47,5 +48,10 @@ int main() {
   for (auto i = it; i != m.end(); i++) {
     cout << (*i).first << endl;
   }
+
+  unordered_map<int> m2;
+  m2[0] = 2;
+  m2[4] = 4;
+  cout << m2.size() << endl;
   return 0;
 }
