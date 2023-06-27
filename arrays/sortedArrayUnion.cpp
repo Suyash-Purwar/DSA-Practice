@@ -1,3 +1,11 @@
+/**
+ * @file Union of Two Sorted Arrays
+ * @brief Union of two arrays can be defined as the common and distinct elements in the two arrays. Given two sorted arrays of size n and m respectively, find their union.
+ * @link https://practice.geeksforgeeks.org/problems/union-of-two-sorted-arrays-1587115621/1
+ * @author Suyash Purwar (github.com/suyash-purwar)
+ * @date 26-06-2023
+*/	
+
 #include <iostream>
 #include <vector>
 #include <set>
