@@ -27,8 +27,8 @@ public:
 
 	// Method 2
 	// TC of access time in unordered map is O(1)
-	// TC: max(n, m)
-	// SC: max(n + m)
+	// TC: O(max(n, m))
+	// SC: O(n + m)
 	int doUnion2(int a[], int n, int b[], int m) {
 		unordered_map<int, int> count;
 		int i = 0;
