@@ -8,13 +8,42 @@
 
 #include <iostream>
 #include <vector>
+#include <algorithm>
 
-using namespace std;
+using std::cout;
+using std::endl;
+using std::vector;
+using std::sort;
 
 class Solution {
 public:
-	// Method 1 (Good)
+	// Method 1 - Sort the vector and check if any adjacent elements are same. If yes, return that element.
+	// TC: O(nlogn + n)
+	// SC: O(1)
 	int findDuplicate1(vector<int>& nums) {
+		sort(nums.begin(), nums.end()); // O(nlogn)
+		for (int i = 1; i < nums.size(); i++) { // O(n)
+			if (nums[i-1] == nums[i]) return nums[i];
+		}
+		return -1;
+	}
+
+	// Method 2 - Hashing
+	// TC: O(2n)
+	// SC: O(n)
+	int findDuplicate2(vector<int> &nums) {
+		vector<int> hash(nums.size(), 0);
+		for (int n: nums) hash[n]++;
+		for (int i = 0; i < hash.size(); i++) {
+			if (hash[i] == 2) return i;
+		}
+		return -1;
+	}
+
+	// Method 3 (Optimal)
+	// TC: O(n)
+	// SC: O(1)
+	int findDuplicate3(vector<int>& nums) {
 		int size = nums.size();
 		int sum = 0;
 		for (auto i: nums) {
@@ -23,8 +52,10 @@ public:
 		return size - ((size*(size+1))/2 - sum);
 	}
 
-	// Method 2 (Best)
-	int findDuplicate2(vector<int>& nums) {
+	// Method 4 (Optimal)
+	// TC: O(n)
+	// SC: O(1)
+	int findDuplicate4(vector<int>& nums) {
 		int ans = 0;
 		for (int i = 0; i < nums.size(); i++) {
 			ans ^= (nums[i] ^ i);
@@ -34,7 +65,7 @@ public:
 };
 
 int main() {
-	vector<int> arr = {1, 2, 2};
+	vector<int> arr = {1, 2, 3, 3};
 	Solution sol;
 	cout << sol.findDuplicate2(arr);
 
