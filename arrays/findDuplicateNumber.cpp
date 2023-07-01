@@ -44,12 +44,12 @@ public:
 	// TC: O(n)
 	// SC: O(1)
 	int findDuplicate3(vector<int>& nums) {
-		int size = nums.size();
+		int n = nums.size()-1;
 		int sum = 0;
 		for (auto i: nums) {
 			sum += i;
 		}
-		return size - ((size*(size+1))/2 - sum);
+		return sum - (n*(n+1))/2;
 	}
 
 	// Method 4 (Optimal)
@@ -67,7 +67,7 @@ public:
 int main() {
 	vector<int> arr = {1, 2, 3, 3};
 	Solution sol;
-	cout << sol.findDuplicate2(arr);
+	cout << sol.findDuplicate3(arr);
 
 	return 0;
 }

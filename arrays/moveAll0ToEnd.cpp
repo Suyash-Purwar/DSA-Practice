@@ -39,17 +39,22 @@ public:
 		cout << endl;
 	}
 
-	// Method 2 - Optimal
+	// Method 2 - Optimal (Prepare this)
 	// TC: O(n)
 	// SC: O(1)
 	void moveZeroes2(vector<int>& nums) {
-		int j = 0;
+		int j = -1;
 		for (int i = 0; i < nums.size(); i++) {
+			if (nums[i] == 0) {
+				j = i;
+				break;
+			}
+		}
+		if (j == -1) return;
+		for (int i = j+1; i < nums.size(); i++) {
 			if (nums[i] != 0) {
-				if (i > j) {
-					nums[j] = nums[i];
-					nums[i] = 0;
-				}
+				nums[j] = nums[i];
+				nums[i] = 0;
 				j++;
 			}
 		}
@@ -84,7 +89,8 @@ public:
 int main() {
 	Solution sol;
 	vector<int> i1 = {0, 0, 1, 4, 0, 1, 0, 9, 3, 0};
-	vector<int> i2 = {1, 0, 1};
-	sol.moveZeroes3(i1);
+	vector<int> i2 = {1};
+	vector<int> i3 = {5, -4, 0, 1, 0, 3, 12, 0};
+	sol.moveZeroes2(i2);
 	return 0;
 }
