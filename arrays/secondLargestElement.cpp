@@ -33,25 +33,23 @@ public:
 	// TC : O(n)
 	// SC : O(1)
 	int findSecondLargest2(int n, vector<int> &arr) {
-		bool isAllSame = 1; int prev = arr[0];
-		int fMax = INT_MIN; int sMax;
-		for (int i = 0; i < n; i++) {
-			if (prev != arr[i]) isAllSame = 0;
-			if (arr[i] > fMax) {
-				sMax = fMax;
-				fMax = arr[i];
-			} else if (arr[i] > sMax && arr[i] != fMax) {
-				sMax = arr[i];
-			}
-		}
-		return (isAllSame ? -1 : sMax);
+	    int fMax = INT_MIN, sMax = INT_MIN;
+	    for (int n: arr) {
+	        if (n > fMax) {
+	            sMax = fMax;
+	            fMax = n;
+	        } else if (n > sMax && n < fMax) {
+	            sMax = n;
+	        }
+	    }
+	    return (sMax == INT_MIN ? -1 : sMax);
 	}
 };
 
 int main() {
-	// vector<int> i1 = {4, 1, 0, -3, 39, 39, 20, 20, 21, 40};
-	vector<int> i1 = {4, 4, 4};
+	vector<int> i1 = {4, 1, 0, -3, 39, 39, 20, 20, 21, 40};
+	// vector<int> i1 = {4, 4, 4};
 	Solution sol;
-	int ans = sol.findSecondLargest2(3, i1);
+	int ans = sol.findSecondLargest1(10, i1);
 	cout << ans;
 }
