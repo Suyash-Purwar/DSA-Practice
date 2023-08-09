@@ -34,6 +34,8 @@ public:
 
 	vector<int> findDuplicates2(vector<int>& nums) {
 		// Method 2 - Sort and compare adjacent elements (Good)
+		// TC: O(n*nlogn)
+		// SC: O(1)
 		vector<int> ans;
 		sort(nums.begin(), nums.end());
 		for (int i = 0; i < nums.size() - 1; i++) {
@@ -45,13 +47,31 @@ public:
 		return ans;
 	}
 
+	// TC: O(n)
+	// SC: O(n)
 	vector<int> findDuplicates3(vector<int>& nums) {
+		vector<int> tracker(nums.size(), 0);
+		vector<int> ans;
+		for (int i: nums) {
+			if (tracker[i-1] == 1) {
+				ans.push_back(i);
+				continue;
+			}
+			tracker[i-1] = 1;
+		}
+		return ans;
+	}
+
+	vector<int> findDuplicates4(vector<int>& nums) {
 		// Method 3 - (Best)
 		// Visit each element, and mark the value of nums[abs(nums[i])-1] as
 		// negative if it's already not negative
 		// If it is negative, then it means an element previously has made this
 		// value negative previously. Which implies that current value is duplicate
 		// Push this value in the ans vector
+
+		// TC: O(n)
+		// SC: O(1)
 		vector<int> ans;
 		for (int i = 0; i < nums.size(); i++) {
 			if (nums[abs(nums[i])-1] < 0) {
