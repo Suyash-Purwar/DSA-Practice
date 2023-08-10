@@ -1,3 +1,11 @@
+/*
+ * @file Print Matrix in snake Pattern
+ * @brief Given a matrix of size N x N. Print the elements of the matrix in the snake like pattern depicted below.
+ * @link https://practice.geeksforgeeks.org/problems/print-matrix-in-snake-pattern-1587115621/1
+ * @author Suyash Purwar (github.com/suyash-purwar)
+ * @date 10-07-2023
+*/
+
 #include <iostream>
 #include <vector>
 
