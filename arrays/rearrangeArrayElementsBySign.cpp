@@ -59,6 +59,43 @@ public:
 		}
 		return ans;
 	}
+
+	/* VARIETY 2 OF THIS QUESTION */
+	/* Solve this question with the assumption that count of positive numbers in unequal to count of negative numbers. Put the left over positive/negative numbers at the end of the array while maintaining their sequence */
+	vector<int> rearrangeArray3(vector<int>& nums) {
+		int n = nums.size();
+		vector<int> positives;
+		vector<int> negatives;
+
+		for (int i = 0; i < n; i++) {
+			if (nums[i] > 0) {
+				positives.push_back(nums[i]);
+			} else {
+				negatives.push_back(nums[i]);
+			}
+		}
+
+		int posCount = positives.size(), negCount = negatives.size();
+		int i = 0, j = 0;
+		int index = 0;
+
+		while (i < posCount || j < negCount) {
+			if (i < posCount) {
+				nums[index] = positives[i];
+				index++;
+			}
+
+			if (j < negCount) {
+				nums[index] = negatives[j];
+				index++;
+			}
+
+			i++;
+			j++;
+		}
+
+		return nums;
+	}
 };
 
 int main() {
@@ -71,7 +108,11 @@ int main() {
 
 	vector<int> o1 = sol.rearrangeArray2(i1);
 
-	for (int i: o1) {
+	vector<int> i2 = {-4, -2, 3, 8, 9, 1, -1, 7};
+
+	vector<int> o2 = sol.rearrangeArray3(i2);
+
+	for (int i: o2) {
 		cout << i << " ";
 	}
 	cout << endl;
