@@ -1,5 +1,5 @@
 /**
- * @file 15. 3 Sum (Leetcode Easy)
+ * @file 15. 3 Sum (Leetcode Medium)
  * @link https://leetcode.com/problems/3sum/
  * @author Suyash Purwar (github.com/suyash-purwar)
  * @date 07-09-2023
